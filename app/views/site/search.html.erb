@@ -1,0 +1,23 @@
+<h1>Music Distro</h1>
+
+<p>Search for your favorite artist, by typing their name in the box below.</p>
+
+<%= form_tag site_search_path do %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Search me up Scotty!" %>
+<% end %>
+
+<h3>Search Results</h3>
+<% if @result.nil?%>
+    Enter your search term bruh
+<% elsif @result.empty? %>
+    No Results
+<% else %>
+  <ul>
+    <% @result.each do |e| %>
+    <li>
+      <%= link_to e.name, e %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
